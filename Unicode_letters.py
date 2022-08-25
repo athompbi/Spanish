@@ -1,0 +1,21 @@
+"""
+Constants for accented and other special characters in Spanish
+https://spanish411.net/Spanish-Typing-Special-Characters.asp
+"""
+
+A_accent = "\U000000C1"
+a_accent = "\U000000E1"
+E_accent = "\U000000C9"
+e_accent = "\U000000E9"
+I_accent = "\U000000CD"
+i_accent = "\U000000ED"
+O_accent = "\U000000D3"
+o_accent = "\U000000F3"
+U_accent = "\U000000DA"
+u_accent = "\U000000FA"
+N_tilde = "\U000000D1"
+n_tilde = "\U000000F1"
+U_dots = "\U000000DC"
+u_dots = "\U000000FC"
+upside_down_exclam = "\U000000A1"
+upside_down_quest = "\U000000BF"
