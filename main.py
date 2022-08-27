@@ -1,6 +1,7 @@
 from Unicode_letters import *
 import tkinter as tk
-from Future_indicative import Future
+from Future_indicative.Future_indicative import Future
+from Future_indicative.Future_indicative_irregular import *
 
 ### Things to add/change:
 ###     accents on labels
@@ -8,6 +9,7 @@ from Future_indicative import Future
 ###     only select one radiobutton at a time
 ###     add documentation
 ###     check for irregulars
+###     remove select from main file
 
 window = tk.Tk()
 
@@ -38,9 +40,19 @@ lbl_tense.pack()
 
 
 def select():
+    ### get the verb from the entry widget
     verb = ent_verb.get()
+    
+    ### if future indicative
     if var7.get() == 7:
+
+        ### check if verb is irregular and get stem if it is
+        verb = Future_irreg(verb)
+
+        ### create instance of verb in Future class
         verb = Future(verb)
+
+        ### pass to function based on selected pronoun
         if var1.get() == 1:
             lbl_results.config(text = verb.get_yo())
         elif var2.get() == 2:
@@ -54,7 +66,7 @@ def select():
         elif var6.get() == 6:
             lbl_results.config(text = verb.get_ellos())
 
-
+### Tense Radiobuttons
 R7 = tk.Radiobutton(window, text="Future Indicative", variable=var7, value=7, command=select)
 R7.pack()
 
@@ -62,6 +74,7 @@ R7.pack()
 lbl_pronoun = tk.Label(text = "Select the subject pronoun")
 lbl_pronoun.pack()
 
+### Pronoun Radiobuttons
 R1 = tk.Radiobutton(window, text="Yo", variable=var1, value=1, command=select)
 R1.pack()
 
@@ -80,7 +93,7 @@ R5.pack()
 R6 = tk.Radiobutton(window, text="Ellos/Ellas/Ustedes", variable=var6, value=6, command=select)
 R6.pack()
 
-
+### Results label
 lbl_results = tk.Label(text = '')
 lbl_results.pack()
 
